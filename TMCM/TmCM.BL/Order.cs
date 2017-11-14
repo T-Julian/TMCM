@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TmCM.BL
+namespace TMCM.BL
 {
     public class Order
     {
@@ -17,6 +17,10 @@ namespace TmCM.BL
         {
             this.OrderId = orderId;
         }
+
+        public int CustomerId { get; set; }
+
+        public int ShippingAddressId { get; set; }
 
         public DateTimeOffset? OrderDate { get; set; }
         public int OrderId { get; private set; }

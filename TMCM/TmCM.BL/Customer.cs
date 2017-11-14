@@ -9,6 +9,7 @@ namespace TMCM.BL
     public class Customer
     {
         public Customer()
+            : this(0)
         {
 
         }
@@ -16,10 +17,17 @@ namespace TMCM.BL
         public Customer(int customerId)
         {
             this.CustomerId = customerId;
+            AddressList = new List<Address>();
         }
+
+        public List<Address> AddressList { get; set; }
+
+        public int CustomerType { get; set; }
+
         public static int  InstanceCount { get; set; }
 
         private string _lastName;
+
         public string LastName
         {
             get
@@ -35,8 +43,11 @@ namespace TMCM.BL
         }
 
         public string FirstName { get; set; }
+
         public string EmailAddress { get; set; }
+
         public int CustomerId { get; private set; }
+
         public string FullName
         {
             get        

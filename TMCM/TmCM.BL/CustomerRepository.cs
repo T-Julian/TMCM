@@ -8,6 +8,12 @@ namespace TMCM.BL
 {
     public class CustomerRepository
     {
+        private AddressRepository addressRepository { get; set; }
+
+        public CustomerRepository()
+        {
+            addressRepository = new AddressRepository();
+        }
 
         /// <summary>
         /// Retrieve one customer.
@@ -16,6 +22,8 @@ namespace TMCM.BL
         {
             // Create the instance of the Customer class
             Customer customer = new Customer(customerId);
+            customer.AddressList = addressRepository.
+                RetrieveByCustomerId(customerId).ToList();
 
             // Code that retrieves the defined customer
 
@@ -23,14 +31,12 @@ namespace TMCM.BL
             // a populated customer
             if (customerId == 1)
             {
-                customer.EmailAddress = "fTaylorJ@juju.me";
+                customer.EmailAddress = "JTaylorJ@juju.me";
                 customer.FirstName = "Julian";
                 customer.LastName = "Taylor";
             }
             return customer;
-        }
-
-        
+        }        
 
         /// <summary>
         /// Retrieves all customers.
@@ -45,7 +51,7 @@ namespace TMCM.BL
         /// Saves the current customer.
         /// </summary>
         /// <returns></returns>
-        public bool Save()
+        public bool Save(Customer customer)
         {
             // Code that saves the defined customer
             return true;
