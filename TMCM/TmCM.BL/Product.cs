@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TMCM.BL
 {
-    public class Product
+    public class Product : EntityBase
     {
         public Product()
         {
@@ -23,13 +23,11 @@ namespace TMCM.BL
         public string ProductDescription { get; set; }
         public string ProductName { get; set; }
 
-       
-
         /// <summary>
         /// Validates the product data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
@@ -37,6 +35,11 @@ namespace TMCM.BL
             if (CurrentPrice == null) isValid = false;
 
             return isValid;
+        }
+
+        public override string ToString()
+        {
+            return ProductName;
         }
     }
 }

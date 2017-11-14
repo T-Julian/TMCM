@@ -23,8 +23,7 @@ namespace TMCM.BL
         public int ShippingAddressId { get; set; }
 
         public DateTimeOffset? OrderDate { get; set; }
-        public int OrderId { get; private set; }
-        
+        public int OrderId { get; private set; }        
 
         /// <summary>
         /// Validates the order data.
@@ -37,6 +36,11 @@ namespace TMCM.BL
             if (OrderDate == null) isValid = false;
 
             return isValid;
+        }
+
+        public override string ToString()
+        {
+            return OrderDate.Value.Date + " (" + OrderId + ")";
         }
     }
 }

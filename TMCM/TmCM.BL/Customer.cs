@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TMCM.BL
 {
-    public class Customer
+    public class Customer 
     {
         public Customer()
             : this(0)
@@ -73,6 +73,11 @@ namespace TMCM.BL
             if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
 
             return isValid;
+        }
+
+        public override string ToString()
+        {
+            return FullName;
         }
     }
 }
