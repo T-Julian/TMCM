@@ -8,6 +8,15 @@ namespace TMCM.BL
 {
     public class Customer
     {
+        public Customer()
+        {
+
+        }
+
+        public Customer(int customerId)
+        {
+            this.CustomerId = customerId;
+        }
         public static int  InstanceCount { get; set; }
 
         private string _lastName;
