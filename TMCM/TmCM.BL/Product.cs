@@ -18,10 +18,17 @@ namespace TMCM.BL
             this.ProductId = productId;
         }
 
-        public Decimal? CurrentPrice { get; set; }
+        public decimal? CurrentPrice { get; set; }
         public int ProductId { get; private set; }
         public string ProductDescription { get; set; }
-        public string ProductName { get; set; }
+
+        private string _ProductName;
+
+        public string ProductName
+        {
+            get { return _ProductName; }
+            set { _ProductName = value; }
+        }
 
         /// <summary>
         /// Validates the product data.
@@ -41,5 +48,7 @@ namespace TMCM.BL
         {
             return ProductName;
         }
+
+        
     }
 }
