@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMCM.Common;
 
 namespace TMCM.BL
 {
-    public class Product : EntityBase
+    public class Product : EntityBase, ILoggable
     {
         public Product()
         {
@@ -49,6 +50,13 @@ namespace TMCM.BL
             return ProductName;
         }
 
-        
+        public string Log()
+        {
+            var logString = this.ProductId + ": " +
+                            this.ProductName + " " +
+                            "Detail: " + this.ProductDescription + " " +
+                            "Status: " + this.EntityState.ToString();
+            return logString;
+        }
     }
 }
